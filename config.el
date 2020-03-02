@@ -32,8 +32,8 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-;; (setq display-line-numbers-type t)
-(setq display-line-numbers-type 'visual)
+;; (setq display-line-numbers-type t) # Absolute numbering
+(setq display-line-numbers-type 'visual) ;;Set Hybrid lines
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -63,3 +63,20 @@
 (setq lsp-ui-sideline-show-code-actions nil)
 (setq lsp-idle-delay 0.500)
 (setq lsp-enable-symbol-highlighting nil) ;; Depends on your preference if you need highligh symbol
+
+;;Map window movement
+(map! ;;:m "M-j" #'multi-next-line
+      ;;:m "M-k" #'multi-previous-line
+
+      ;; Easier window movement
+      :ni "C-h" #'evil-window-left ;;C-h is for an Essential Emacs thing(help), disabled
+      :ni "C-j" #'evil-window-down
+      :ni "C-k" #'evil-window-up
+      :ni "C-l" #'evil-window-right
+
+      (:map evil-treemacs-state-map
+        "C-h" #'evil-window-left
+        "C-l" #'evil-window-right
+        ;; "M-j" #'multi-next-line
+        ;; "M-k" #'multi-previous-line
+        ))
