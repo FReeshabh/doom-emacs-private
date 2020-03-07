@@ -65,18 +65,39 @@
 (setq lsp-enable-symbol-highlighting nil) ;; Depends on your preference if you need highligh symbol
 
 ;;Map window movement
-(map! ;;:m "M-j" #'multi-next-line
-      ;;:m "M-k" #'multi-previous-line
+(map! :m "M-j" #'multi-next-line
+      :m "M-k" #'multi-previous-line
 
       ;; Easier window movement
-      :ni "C-h" #'evil-window-left ;;C-h is for an Essential Emacs thing(help), disabled
-      :ni "C-j" #'evil-window-down
-      :ni "C-k" #'evil-window-up
-      :ni "C-l" #'evil-window-right
+      :n "C-h" #'evil-window-left
+      :n "C-j" #'evil-window-down
+      :n "C-k" #'evil-window-up
+      :n "C-l" #'evil-window-right
+
+      ;; Resizing Windows
+      :n "C-S-H" #'evil-window-decrease-width
+      :n "C-S-L" #'evil-window-increase-width
+      :n "C-S-K" #'evil-window-increase-height
+      :n "C-S-J" #'evil-window-decrease-height
+
+      :n "C-Q" #'evil-quit ;;Closing Window
+      :n "C-q" #'kill-buffer ;;Closing Buffer
+
+      (:map vterm-mode-map
+        ;; Easier window movement
+        :i "C-h" #'evil-window-left
+        :i "C-j" #'evil-window-down
+        :i "C-k" #'evil-window-up
+        :i "C-l" #'evil-window-right
+        ;; Resizing Windows
+        :i "C-S-h" #'evil-window-decrease-width
+        :i "C-S-l" #'evil-window-increase-width
+        :i "C-S-k" #'evil-window-increase-height
+        :i "C-S-j" #'evil-window-decrease-height
+        )
 
       (:map evil-treemacs-state-map
         "C-h" #'evil-window-left
         "C-l" #'evil-window-right
-        ;; "M-j" #'multi-next-line
-        ;; "M-k" #'multi-previous-line
-        ))
+        "M-j" #'multi-next-line
+        "M-k" #'multi-previous-line))
