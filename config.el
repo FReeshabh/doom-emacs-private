@@ -20,6 +20,19 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (setq doom-font (font-spec :family "monospace" :size 18))
+;; (defvar xdg-data (getenv "XDG_DATA_HOME"))
+
+;; (defvar xdg-config (getenv "XDG_CONFIG_HOME"))
+
+;; (setenv "EDITOR" "emacsclient")
+
+;; (global-visual-line-mode 1) ;; Line Wrapping 1 for on, 0 for off.
+
+;; (setq doom-font (font-spec                :family "FiraCode" :size 15)
+;;       doom-variable-pitch-font (font-spec :family "FiraCode" :size 15)
+;;       doom-unicode-font (font-spec        :family "FiraCode" :size 15)
+;;       doom-big-font (font-spec            :family "FiraCode" :size 30))
+
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
