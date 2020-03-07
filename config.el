@@ -9,6 +9,13 @@
 (setq user-full-name "Rishabh Tewari"
       user-mail-address "rishabhtewari1@gmail.com")
 
+;;Enviroment Variables
+(defvar xdg-data (getenv "XDG_DATA_HOME"))
+(defvar xdg-config (getenv "XDG_CONFIG_HOME"))
+;; (setenv "EDITOR" "emacsclient")
+
+;; (global-visual-line-mode 1) ;; Line Wrapping 1 for on, 0 for off.
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -19,19 +26,12 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "monospace" :size 18))
-;; (defvar xdg-data (getenv "XDG_DATA_HOME"))
+;; (setq doom-font (font-spec :family "monospace" :size 18))
 
-;; (defvar xdg-config (getenv "XDG_CONFIG_HOME"))
-
-;; (setenv "EDITOR" "emacsclient")
-
-;; (global-visual-line-mode 1) ;; Line Wrapping 1 for on, 0 for off.
-
-;; (setq doom-font (font-spec                :family "FiraCode" :size 15)
-;;       doom-variable-pitch-font (font-spec :family "FiraCode" :size 15)
-;;       doom-unicode-font (font-spec        :family "FiraCode" :size 15)
-;;       doom-big-font (font-spec            :family "FiraCode" :size 30))
+(setq doom-font (font-spec                :family "FiraCode" :size 16)
+      doom-variable-pitch-font (font-spec :family "FiraCode" :size 16)
+      doom-unicode-font (font-spec        :family "FiraCode" :size 16)
+      doom-big-font (font-spec            :family "FiraCode" :size 30))
 
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -78,8 +78,9 @@
 (setq lsp-enable-symbol-highlighting nil) ;; Depends on your preference if you need highligh symbol
 
 ;;Map window movement
-(map! :m "M-j" #'multi-next-line
-      :m "M-k" #'multi-previous-line
+(map!
+      ;; :m "M-j" #'multi-next-line
+      ;; :m "M-k" #'multi-previous-line
 
       ;; Easier window movement
       :n "C-h" #'evil-window-left
@@ -112,5 +113,6 @@
       (:map evil-treemacs-state-map
         "C-h" #'evil-window-left
         "C-l" #'evil-window-right
-        "M-j" #'multi-next-line
-        "M-k" #'multi-previous-line))
+        ;; "M-j" #'multi-next-line
+        ;; "M-k" #'multi-previous-line
+        ))
